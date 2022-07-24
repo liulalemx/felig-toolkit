@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Amharic Information Retrieval System",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
