@@ -1,0 +1,21 @@
+{
+  "name": "felig",
+  "version": "1.0.0",
+  "description": "Amharic Information Retrieval System",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Amharic",
+    "Stemmer",
+    "Affixes",
+    "Amharic",
+    "Stopword",
+    "Amharic",
+    "Sentiment",
+    "analysis"
+  ],
+  "author": "",
+  "license": "ISC"
+}
