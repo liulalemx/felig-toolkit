@@ -424,14 +424,14 @@ const felig_transliteration_lookup_table = {
   ኝ: "N",
   ኞ: "No",
   ኟ: "NWa",
-  አ: "e",
+  አ: "a",
   ኡ: "u",
   ኢ: "i",
-  ኣ: "e",
+  ኣ: "a",
   ኤ: "E",
   እ: "I",
   ኦ: "o",
-  ኧ: "ea",
+  ኧ: "e",
   ከ: "ke",
   ኩ: "ku",
   ኪ: "ki",
@@ -590,32 +590,28 @@ function sera_transliterate(amh) {
 }
 
 function felig_transliterate(word, lang) {
-  let ascii = "";
-  let amh = "";
+  let trans_word = "";
 
   const tokens = word.split("");
 
   if (lang === "am") {
     tokens.forEach((letter) => {
       if (felig_transliteration_lookup_table[letter] !== undefined) {
-        ascii += felig_transliteration_lookup_table[letter];
+        trans_word += felig_transliteration_lookup_table[letter];
       }
     });
   } else if (lang === "en") {
     tokens.forEach((letter) => {
-      if (
-        Object.keys(felig_transliteration_lookup_table).find(
-          (key) => felig_transliteration_lookup_table[key] === letter
-        ) !== undefined
-      ) {
-        amh += Object.keys(felig_transliteration_lookup_table).find(
-          (key) => felig_transliteration_lookup_table[key] === letter
-        );
+      let en_letter = Object.keys(felig_transliteration_lookup_table).find(
+        (key) => felig_transliteration_lookup_table[key] === letter
+      );
+      if (en_letter !== undefined) {
+        trans_word += en_letter;
       }
     });
   }
 
-  return ascii;
+  return trans_word;
 }
 
 const transliterate = {

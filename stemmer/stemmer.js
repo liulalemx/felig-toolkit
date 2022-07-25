@@ -6,7 +6,7 @@ import transliterate from "../transliterator/transliterator.js";
 const suffix_list =
   "ኢዕኧልኧሽ|ኣውኢው|ኣችኧውኣል|ኧችኣት|ኧችኣችህኡ|ኧችኣችኧው|ኣልኧህኡ|ኣውኦች|ኣልኧህ|ኣልኧሽ|ኣልችህኡ|ኣልኣልኧች|ብኣችኧውስ|ብኣችኧው|ኣችኧውን|ኣልኧች|ኣልኧን|ኣልኣችህኡ|ኣችህኡን|ኣችህኡ||ኣችህኡት|ውኦችንንኣ|ውኦችን|ኣችኧው|ውኦችኡን|ውኦችኡ|ኧውንኣ|ኦችኡን|ኦውኦች|ኧኝኣንኧትም|ኧኝኣንኣ|ኧኝኣንኧት|ኧኝኣን|ኧኝኣውም|ኧኝኣው|ኝኣውኣ|ብኧትን|ኣችህኡም|ኦውኣ|ኧችው|ኧችኡ|ኤችኡ|ንኧው|ንኧት|ኣልኡ|ኣችን|ክኡም|ክኡት|ክኧው|ኧችን|ኧችም|ኧችህ|ኧችሽ|ኧችን|ኧችው|ይኡሽን|ይኡሽ|ኧውኢ|ኦችንንኣ|ኣውኢ|ብኧት|ኦች|ኦችኡ|ውኦን|ኧኝኣ|ኝኣውን|ኝኣው|ኦችን|ኣል|ኧም|ሽው|ክም|ኧው|ትም|ውኦ|ውም|ውን|ንም|ሽን|ኣች|ኡት|ኢት|ክኡ|ኤ|ህ|ሽ|ኡ|ሽ|ክ|ኧ|ኧች|ኡን|ን|ም|ንኣ|ው";
 const prefix_list =
-  "ስልኧምኣይ|ይኧምኣት|ዕንድኧ|ይኧትኧ|ብኧምኣ|ብኧትኧ|ዕኧል|ስልኧ|ምኧስ|ዕይኧ|ዕኧስ|ዕኧት|ዕኧን|ዕኧይ|ይኣል|ስኣት|ስኣን|ስኣይ|ስ ኣል|ይኣስ|ይኧ|ልኧ|ክኧ|እን|ዕን|ዐል|ይ|ት|አ|እ";
+  "ስልኧምኣይ|ይኧምኣት|ዕንድኧ|ይኧትኧ|ብኧምኣ|ብኧትኧ|ዕኧል|ስልኧ|ምኧስ|ዕይኧ|ዕኧስ|ዕኧት|ዕኧን|ዕኧይ|ይኣል|ስኣት|ስኣን|ስኣይ|ስኣል|ይኣስ|ይኧ|ልኧ|ክኧ|እን|አል|ይ|ት|አ|እ";
 const sfx_arr = [];
 const pfx_arr = [];
 
@@ -27,15 +27,22 @@ function stem(word) {
 
   // Remove suffixes
   sfx_arr.forEach((sfx) => {
-    cv_string = cv_string.replace(sfx, "");
+    if (cv_string.endsWith(sfx)) {
+      cv_string = cv_string.replace(sfx, "");
+    }
   });
 
   // Remove prefixes
-  sfx_arr.forEach((sfx) => {
-    cv_string = cv_string.replace(sfx, "");
+  pfx_arr.forEach((pfx) => {
+    if (cv_string.startsWith(pfx)) {
+      cv_string = cv_string.replace(pfx, "");
+    }
   });
 
-  return cv_string;
+  // Remove vowels
+  cv_string = cv_string.replace(/[aeiou]/gi, "");
+
+  return transliterate.felig_transliterate(cv_string, "en");
 }
 
 export default stem;
