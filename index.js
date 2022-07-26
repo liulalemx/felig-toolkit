@@ -30,14 +30,17 @@ const testWords = [
   "መንከባከብ", //special case
 ];
 
-testWords.forEach((word) => {
-  let stem_word = stem(word);
-  console.log("Input: " + word);
-  console.log("Output: " + stem_word);
-});
+function testStemmer() {
+  testWords.every(async function (word) {
+    let stem_word = await stem(word);
+    console.log("Input: " + word);
+    console.log("Output: " + stem_word);
+    return true;
+  });
+}
 
-// update sera transliterator
-// make async
+testStemmer();
+
 //lexical analizer
 //Stopword remover
 // fe lale ge

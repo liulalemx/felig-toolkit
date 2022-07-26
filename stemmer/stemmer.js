@@ -53,7 +53,7 @@ function stem(word) {
   // Remove vowels
   cv_string = cv_string.replace(/[aeiou]/gi, "");
 
-  return transliterate.felig_transliterate(cv_string, "en");
+  return Promise.resolve(transliterate.felig_transliterate(cv_string, "en"));
 }
 
 export default stem;
