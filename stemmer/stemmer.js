@@ -1,5 +1,4 @@
-// Takes Amharic language nouns and produces a stem
-// Amharic noun ->
+// Takes Amharic language words and produces a stem
 // ልጆች -> ልጅኦች -> ljoc -> lj -> ልጅ
 import transliterate from "../transliterator/transliterator.js";
 

@@ -30,6 +30,15 @@ const testWords = [
   "መንከባከብ", //special case
 ];
 
+function testTransliterator() {
+  testWords.every(function (word) {
+    let trans_word = transliterate.felig_transliterate(word, "am");
+    console.log("Input: " + word);
+    console.log("Output: " + trans_word);
+    return true;
+  });
+}
+
 function testStemmer() {
   testWords.every(async function (word) {
     let stem_word = await stem(word);
@@ -39,11 +48,8 @@ function testStemmer() {
   });
 }
 
-testStemmer();
+// testStemmer();
+// testTransliterator();
 
 //lexical analizer
 //Stopword remover
-// fe lale ge
-// se dade be
-// ke dade de
-// Se fafe ne

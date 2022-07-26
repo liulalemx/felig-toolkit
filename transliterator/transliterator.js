@@ -578,7 +578,7 @@ const felig_transliteration_lookup_table = {
   ፗ: "pWa",
 };
 
-function sera_transliterate(amh) {
+function sera_transliterate(word, lang) {
   let trans_word = "";
 
   const tokens = word.split("");
