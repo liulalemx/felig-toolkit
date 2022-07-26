@@ -4,9 +4,9 @@
 import transliterate from "../transliterator/transliterator.js";
 
 const suffix_list =
-  "ኢዕኧልኧሽ|ኣውኢው|ኣችኧውኣል|ኧችኣት|ኧችኣችህኡ|ኧችኣችኧው|ኣልኧህኡ|ኣውኦች|ኣልኧህ|ኣልኧሽ|ኣልችህኡ|ኣልኣልኧች|ብኣችኧውስ|ብኣችኧው|ኣችኧውን|ኣልኧች|ኣልኧን|ኣልኣችህኡ|ኣችህኡን|ኣችህኡ||ኣችህኡት|ውኦችንንኣ|ውኦችን|ኣችኧው|ውኦችኡን|ውኦችኡ|ኧውንኣ|ኦችኡን|ኦውኦች|ኧኝኣንኧትም|ኧኝኣንኣ|ኧኝኣንኧት|ኧኝኣን|ኧኝኣውም|ኧኝኣው|ኝኣውኣ|ብኧትን|ኣችህኡም|ኦውኣ|ኧችው|ኧችኡ|ኤችኡ|ንኧው|ንኧት|ኣልኡ|ኣችን|ክኡም|ክኡት|ክኧው|ኧችን|ኧችም|ኧችህ|ኧችሽ|ኧችን|ኧችው|ይኡሽን|ይኡሽ|ኧውኢ|ኦችንንኣ|ኣውኢ|ብኧት|ኦች|ኦችኡ|ውኦን|ኧኝኣ|ኝኣውን|ኝኣው|ኦችን|ኣል|ኧም|ሽው|ክም|ኧው|ትም|ውኦ|ውም|ውን|ንም|ሽን|ኣች|ኡት|ኢት|ክኡ|ኤ|ህ|ሽ|ኡ|ሽ|ክ|ኧ|ኧች|ኡን|ን|ም|ንኣ|ው";
+  "ኢዕኧልኧሽ|ኣውኢው|ኣችኧውኣል|ኧችኣት|ኧችኣችህኡ|ኧችኣችኧው|ኣልኧህኡ|ኣውኦች|ኣልኧህ|ኣልኧሽ|ኣልችህኡ|ኣልኣልኧች|ብኣችኧውስ|ብኣችኧው|ኣችኧውን|ኣልኧች|ኣልኧን|ኣልኣችህኡ|ኣችህኡን|ኣችህኡ|ኣችህኡት|ውኦችንንኣ|ውኦችን|ኣችኧው|ውኦችኡን|ውኦችኡ|ኧውንኣ|ኦችኡን|ኦውኦች|ኧኝኣንኧትም|ኧኝኣንኣ|ኧኝኣንኧት|ኧኝኣን|ኧኝኣውም|ኧኝኣው|ኝኣውኣ|ብኧትን|ኣችህኡም|ችኣችን|ኦውኣ|ኧችው|ኧችኡ|ኤችኡ|ንኧው|ንኧት|ኣልኡ|ኣችን|ክኡም|ክኡት|ክኧው|ኧችን|ኧችም|ኧችህ|ኧችሽ|ኧችን|ኧችው|ይኡሽን|ይኡሽ|ኧውኢ|ኦችንንኣ|ኣውኢ|ብኧት|ኦች|ኦችኡ|ውኦን|ኧኝኣ|ኝኣውን|ኝኣው|ኦችን|ኣል|ኧም|ሽው|ክም|ኧው|ትም|ውኦ|ውም|ውን|ንም|ሽን|ኣች|ኡት|ኢት|ክኡ|ኤ|ህ|ሽ|ኡ|ሽ|ክ|ኧ|ኧች|ኡን|ን|ም|ንኣ|ው";
 const prefix_list =
-  "ስልኧምኣይ|ይኧምኣት|ዕንድኧ|ይኧትኧ|ብኧምኣ|ብኧትኧ|ዕኧል|ስልኧ|ምኧስ|ዕይኧ|ዕኧስ|ዕኧት|ዕኧን|ዕኧይ|ይኣል|ስኣት|ስኣን|ስኣይ|ስኣል|ይኣስ|ይኧ|ልኧ|ክኧ|እን|አል|ይ|ት|አ|እ";
+  "ስልኧምኣይ|ይኧምኣት|ዕንድኧ|ይኧትኧ|ብኧምኣ|ብኧትኧ|ዕኧል|ስልኧ|ምኧስ|ዕይኧ|ይኣል|ስኣት|ስኣን|ስኣይ|ስኣል|ይኣስ|ይኧ|ልኧ|ክኧ|እን|አል|አስ|አት|አን|አይ|ይ|ት|አ|እ";
 const sfx_arr = [];
 const pfx_arr = [];
 
@@ -26,17 +26,28 @@ function stem(word) {
   });
 
   // Remove suffixes
-  sfx_arr.forEach((sfx) => {
+  sfx_arr.every(function (sfx, index) {
     if (cv_string.endsWith(sfx)) {
-      cv_string = cv_string.replace(sfx, "");
-    }
+      let regex = new RegExp(`${sfx}$`);
+      cv_string = cv_string.replace(regex, "");
+      return false;
+    } else return true;
   });
 
+  // Remove infixes
+  if (/..([^aeiou])[aeiou]\1[aeiou].?/i.test(cv_string)) {
+    cv_string = cv_string.replace(/\S\S[^aeiou][aeiou]/i, cv_string[0]);
+  } else if (/^(.+)a\1$/i.test(cv_string)) {
+    cv_string = cv_string.replace(/a.+/i, "");
+  }
+
   // Remove prefixes
-  pfx_arr.forEach((pfx) => {
+  pfx_arr.every(function (pfx, index) {
     if (cv_string.startsWith(pfx)) {
-      cv_string = cv_string.replace(pfx, "");
-    }
+      let regex = new RegExp(`^${pfx}`);
+      cv_string = cv_string.replace(regex, "");
+      return false;
+    } else return true;
   });
 
   // Remove vowels
