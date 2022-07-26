@@ -579,14 +579,28 @@ const felig_transliteration_lookup_table = {
 };
 
 function sera_transliterate(amh) {
-  let ascii = "";
-  const tokens = amh.split("");
-  tokens.forEach((letter) => {
-    if (sera_transliteration_lookup_table[letter] !== undefined) {
-      ascii += sera_transliteration_lookup_table[letter];
-    }
-  });
-  return ascii;
+  let trans_word = "";
+
+  const tokens = word.split("");
+
+  if (lang === "am") {
+    tokens.forEach((letter) => {
+      if (sera_transliteration_lookup_table[letter] !== undefined) {
+        trans_word += sera_transliteration_lookup_table[letter];
+      }
+    });
+  } else if (lang === "en") {
+    tokens.forEach((letter) => {
+      let en_letter = Object.keys(sera_transliteration_lookup_table).find(
+        (key) => sera_transliteration_lookup_table[key] === letter
+      );
+      if (en_letter !== undefined) {
+        trans_word += en_letter;
+      }
+    });
+  }
+
+  return trans_word;
 }
 
 function felig_transliterate(word, lang) {
