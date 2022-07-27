@@ -1,7 +1,7 @@
 {
-  "name": "felig",
+  "name": "felig-toolkit",
   "version": "1.0.0",
-  "description": "Amharic Information Retrieval System",
+  "description": "Amharic Language Pre-processor toolkit",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -17,5 +17,5 @@
     "analysis"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
