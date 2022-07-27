@@ -18,5 +18,9 @@
     "analysis"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liulalemx/felig-toolkit.git"
+  }
 }
