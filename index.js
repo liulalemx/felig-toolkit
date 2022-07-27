@@ -1,5 +1,7 @@
 import stem from "./stemmer.js";
 import transliterate from "./transliterator.js";
+import lexAnalyze from "./lexical_analyzer.js";
+import rmvStopwrd from "./stopword_remover.js";
 
 const testWords = [
   "ልጅ",
@@ -30,6 +32,9 @@ const testWords = [
   "መንከባከብ", //special case
 ];
 
+const smpl_corpus =
+  "የገንዘብ፤ሚኒስቴር፤ም/ቤት፤ከሃያ፤ዓመታት፤በፊት፤ያወጣውን፤የተጨማሪ፤እሴት፤ታክስ(ቫት)፤አዋጅን፤የሚተካ፤ረቂቅ፤ተዘጋጀ። ረቂቅ  አዋጁ! መንግሥት ? ከቫት ታክስ የሚሰበስብበትን 'መሠረት ፩ የሚያሰፋ ስለሚሆን' ለውይይት ቀርቧል። ትምህት-ብት አና መስሪያ-ብት?";
+
 function testTransliterator() {
   testWords.every(function (word) {
     let trans_word = transliterate.felig_transliterate(word, "am");
@@ -48,5 +53,20 @@ function testStemmer() {
   });
 }
 
+function testLexicalAnalyzer() {
+  let tokens = lexAnalyze(smpl_corpus);
+  console.log("Input: " + smpl_corpus);
+  console.log("Output: " + tokens);
+}
+
+function testStopwordRemover() {
+  let tokens = lexAnalyze(smpl_corpus);
+  let cleanCorpus = rmvStopwrd(tokens);
+  console.log("Input: " + smpl_corpus);
+  console.log("Output: " + cleanCorpus);
+}
+
 // testStemmer();
 // testTransliterator();
+// testLexicalAnalyzer();
+// testStopwordRemover();
