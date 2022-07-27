@@ -1,4 +1,4 @@
-// JavaScript implementation of SERA (System for Ethiopic Representation in ASCII)
+// JavaScript implementations of Amharic to ASCII transliterator
 const sera_transliteration_lookup_table = {
   ሀ: "he",
   ሁ: "hu",

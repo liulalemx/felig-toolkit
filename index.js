@@ -1,5 +1,5 @@
-import stem from "./stemmer/stemmer.js";
-import transliterate from "./transliterator/transliterator.js";
+import stem from "./stemmer.js";
+import transliterate from "./transliterator.js";
 
 const testWords = [
   "ልጅ",
@@ -50,6 +50,3 @@ function testStemmer() {
 
 // testStemmer();
 // testTransliterator();
-
-//lexical analizer
-//Stopword remover
