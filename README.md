@@ -48,21 +48,21 @@ npm install felig-toolkit
 **note: this package uses es-modules**
 
 ```javaScript
-import felig-toolkit from 'felig-toolkit'
+import felig_toolkit from 'felig-toolkit'
 
 ```
 
 ## What's Included
 
-- `felig_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns felig-transliterated string
+- `transliterate.felig_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns felig-transliterated string
 
-- `sera_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns SERA-transliterated string
+- `transliterate.sera_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns SERA-transliterated string
 
 - `removeStopwords(corpus)`: takes an Amharic corpus text (sentence/paragraph/multiple-paragraphs) and removes stop wprds
 
 - `lexAnalyze()`: takes an Amharic corpus text returns a string of tokens
 
-- `stem(word)`: takes an Amharic word string and returns the stem as a string
+- `stem(word)`: takes an Amharic word string and returns the stem as a string (async)
 
 ## Contributions
 
