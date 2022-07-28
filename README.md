@@ -11,7 +11,7 @@ It is a toolset for Amharic Language pre-processing. It includes an Amharic Stem
 
 ### Amharic Lexical Analyzer
 
-Breaks down Amharic language corpus and returns tokens by by removing any whitespace, expanding abbreviations(`አ.አ -> አዲስ አበበ`), removing numbers, breaking up hyphenated words, and removing punctuation (`፡ ። ! ? `...).
+Breaks down Amharic language corpus and returns tokens by removing any whitespace, expanding abbreviations(`አ.አ -> አዲስ አበበ`), removing numbers, breaking up hyphenated words, and removing punctuation (`፡ ። ! ? `...).
 
 ### Amharic Stopword remover
 
@@ -19,10 +19,7 @@ Removes commonly occuring words that have no contribution to the semantics of th
 
 ### Amharic Transliterator
 
-Changes Unicode Amharic characters to ASCII. This tool implements two types of Amharic transliteration lookup tables.
-
-Exmaple:
-`ልጆች -> ልጅኦች -> ljoc`
+Changes Unicode Amharic characters to ASCII. Exmaple: `ልጆች -> ልጅኦች -> ljoc`. This tool implements two types of Amharic transliteration lookup tables.
 
 - SERA (System for Ethiopic Representation in ASCII) - This system maps alphabets with similar sounds separately. Eg: `(ሀ፣ሐ፡ኀ)፣(ሰ፡ሠ)፡(ጸ፡ፀ)፡(ዐ፡አ)`. However, in practice, these alphabets are used interchangeably and use of SERA would greatly decrease recall. **NOT RECOMMENDED!**
 
@@ -51,21 +48,21 @@ npm install felig-toolkit
 **note: this package uses es-modules**
 
 ```javaScript
-import felig-toolkit from 'felig-toolkit'
+import felig_toolkit from 'felig-toolkit'
 
 ```
 
 ## What's Included
 
-- `felig_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns felig-transliterated string
+- `transliterate.felig_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns felig-transliterated string
 
-- `sera_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns SERA-transliterated string
+- `transliterate.sera_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns SERA-transliterated string
 
 - `removeStopwords(corpus)`: takes an Amharic corpus text (sentence/paragraph/multiple-paragraphs) and removes stop wprds
 
 - `lexAnalyze()`: takes an Amharic corpus text returns a string of tokens
 
-- `stem(word)`: takes an Amharic word string and returns the stem as a string
+- `stem(word)`: takes an Amharic word string and returns the stem as a string (async)
 
 ## Contributions
 
