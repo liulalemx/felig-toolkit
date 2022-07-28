@@ -11,7 +11,7 @@ It is a toolset for Amharic Language pre-processing. It includes an Amharic Stem
 
 ### Amharic Lexical Analyzer
 
-Breaks down Amharic language corpus and returns tokens by by removing any whitespace, expanding abbreviations(`አ.አ -> አዲስ አበበ`), removing numbers, breaking up hyphenated words, and removing punctuation (`፡ ። ! ? `...).
+Breaks down Amharic language corpus and returns tokens by removing any whitespace, expanding abbreviations(`አ.አ -> አዲስ አበበ`), removing numbers, breaking up hyphenated words, and removing punctuation (`፡ ። ! ? `...).
 
 ### Amharic Stopword remover
 
@@ -19,10 +19,7 @@ Removes commonly occuring words that have no contribution to the semantics of th
 
 ### Amharic Transliterator
 
-Changes Unicode Amharic characters to ASCII. This tool implements two types of Amharic transliteration lookup tables.
-
-Exmaple:
-`ልጆች -> ልጅኦች -> ljoc`
+Changes Unicode Amharic characters to ASCII. Exmaple: `ልጆች -> ልጅኦች -> ljoc`. This tool implements two types of Amharic transliteration lookup tables.
 
 - SERA (System for Ethiopic Representation in ASCII) - This system maps alphabets with similar sounds separately. Eg: `(ሀ፣ሐ፡ኀ)፣(ሰ፡ሠ)፡(ጸ፡ፀ)፡(ዐ፡አ)`. However, in practice, these alphabets are used interchangeably and use of SERA would greatly decrease recall. **NOT RECOMMENDED!**
 
