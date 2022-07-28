@@ -70,3 +70,12 @@ function testStopwordRemover() {
 // testTransliterator();
 // testLexicalAnalyzer();
 // testStopwordRemover();
+
+const felig_toolkit = {
+  stem,
+  transliterate,
+  lexAnalyze,
+  rmvStopwrd,
+};
+
+export default felig_toolkit;
