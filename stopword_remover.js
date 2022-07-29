@@ -1,6 +1,5 @@
 // Removes stop words
-
-const stop_word_list = ["ስለሚሆን", "አና"];
+const stop_word_list = ["ስለሚሆን", "አና", "ስለዚህ", "በመሆኑም"];
 
 function removeStopwords(corpus) {
   stop_word_list.forEach((word) => {

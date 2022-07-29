@@ -51,7 +51,7 @@ function lexAnalyze(corpus) {
 
   corpus = corpus
     .replace(/[.\?"',/#!$%^&*;:፤።{}=\-_`~()]/g, " ")
-    .replace(/[.፩፪፫፬፭፮፮፰፱፲፳፴፵፵፷፸፹፺፻]/g, " ")
+    .replace(/[.፩፪፫፬፭፮፮፰፱፲፳፴፵፵፷፸፹፺፻0123456789]/g, " ")
     .replace(/\s{2,}/g, " ");
 
   return corpus;

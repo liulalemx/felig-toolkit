@@ -30,6 +30,8 @@ const testWords = [
   "ተንከባከበ", //special case
   "መስተካከል", //special case
   "መንከባከብ", //special case
+  "ጠቢብ",
+  "ጠባብ",
 ];
 
 const smpl_corpus =
