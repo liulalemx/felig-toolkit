@@ -52,9 +52,6 @@ function stem(word) {
     cv_string = cv_string.replace(/a.+/i, "");
   }
 
-  // Remove vowels
-  // cv_string = cv_string.replace(/[aeiou]/gi, "");
-
   return Promise.resolve(transliterate.felig_transliterate(cv_string, "en"));
 }
 

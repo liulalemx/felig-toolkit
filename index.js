@@ -73,7 +73,7 @@ function testTransliterator() {
 }
 
 function testStemmer() {
-  testWords.every(async function (word) {
+  testWordsForOneStem.every(async function (word) {
     let stem_word = await stem(word);
     console.log("Input: " + word);
     console.log("Output: " + stem_word);
@@ -94,7 +94,7 @@ function testStopwordRemover() {
   console.log("Output: " + cleanCorpus);
 }
 
-testStemmer();
+// testStemmer();
 // testTransliterator();
 // testLexicalAnalyzer();
 // testStopwordRemover();
