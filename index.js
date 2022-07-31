@@ -19,19 +19,24 @@ const testWords = [
   "ሰዳደበ",
   "ቀዳደደ",
   "ሸፋፈነ",
+  "ቅጠል",
+  "ቅጠሎች",
   "ቅጠላቅጠል",
   "ወጣወጥ",
   "ስለማይለወጥ",
   "ተበላ",
   "ተፈላለገ",
   "ተመካከረ",
-  "ትቢተኛነት", //special case, what has T as prefix?
-  "ተስተካከለ", //special case
+  "ትቢተኛነት",
+  "ተፎካከረ",
+  "ተመሳሰለ",
+  "ተስተካከለ", //special case, what has T as prefix?
   "ተንከባከበ", //special case
   "መስተካከል", //special case
   "መንከባከብ", //special case
   "ጠቢብ",
   "ጠባብ",
+  "ትምህርት",
 ];
 
 const smpl_corpus =
@@ -68,7 +73,7 @@ function testStopwordRemover() {
   console.log("Output: " + cleanCorpus);
 }
 
-// testStemmer();
+testStemmer();
 // testTransliterator();
 // testLexicalAnalyzer();
 // testStopwordRemover();

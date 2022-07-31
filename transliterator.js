@@ -581,15 +581,15 @@ const felig_transliteration_lookup_table = {
 function sera_transliterate(word, lang) {
   let trans_word = "";
 
-  const tokens = word.split("");
-
   if (lang === "am") {
+    let tokens = word.split("");
     tokens.forEach((letter) => {
       if (sera_transliteration_lookup_table[letter] !== undefined) {
         trans_word += sera_transliteration_lookup_table[letter];
       }
     });
   } else if (lang === "en") {
+    let tokens = word.match(/.{1,2}/g);
     tokens.forEach((letter) => {
       let en_letter = Object.keys(sera_transliteration_lookup_table).find(
         (key) => sera_transliteration_lookup_table[key] === letter
@@ -606,21 +606,36 @@ function sera_transliterate(word, lang) {
 function felig_transliterate(word, lang) {
   let trans_word = "";
 
-  const tokens = word.split("");
-
   if (lang === "am") {
+    let tokens = word.split("");
     tokens.forEach((letter) => {
       if (felig_transliteration_lookup_table[letter] !== undefined) {
         trans_word += felig_transliteration_lookup_table[letter];
       }
     });
   } else if (lang === "en") {
+    let tokens = word.match(/.{1,2}/g);
     tokens.forEach((letter) => {
-      let en_letter = Object.keys(felig_transliteration_lookup_table).find(
-        (key) => felig_transliteration_lookup_table[key] === letter
-      );
-      if (en_letter !== undefined) {
-        trans_word += en_letter;
+      if (/[^aeiou][aeiou]/i.test(letter)) {
+        let am_letter = Object.keys(felig_transliteration_lookup_table).find(
+          (key) => felig_transliteration_lookup_table[key] === letter
+        );
+
+        if (am_letter !== undefined) {
+          trans_word += am_letter;
+        }
+      } else {
+        let ltrs = letter.split("");
+        let am_letter = "";
+        ltrs.forEach((ltr) => {
+          am_letter += Object.keys(felig_transliteration_lookup_table).find(
+            (key) => felig_transliteration_lookup_table[key] === ltr
+          );
+        });
+
+        if (am_letter !== undefined && am_letter !== "ኧ") {
+          trans_word += am_letter;
+        }
       }
     });
   }
