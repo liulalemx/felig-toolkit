@@ -52,7 +52,7 @@ function stem(word) {
     cv_string = cv_string.replace(/a.+/i, "");
   }
 
-  return Promise.resolve(transliterate.felig_transliterate(cv_string, "en"));
+  return transliterate.felig_transliterate(cv_string, "en");
 }
 
 export default stem;

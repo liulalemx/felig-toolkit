@@ -615,6 +615,11 @@ function felig_transliterate(word, lang) {
     });
   } else if (lang === "en") {
     let tokens = word.match(/.{1,2}/g);
+
+    if (tokens === null) {
+      return "";
+    }
+
     tokens.forEach((letter) => {
       if (/[^aeiou][aeiou]/i.test(letter)) {
         let am_letter = Object.keys(felig_transliteration_lookup_table).find(

@@ -73,7 +73,7 @@ function testTransliterator() {
 }
 
 function testStemmer() {
-  testWordsForOneStem.every(async function (word) {
+  testWords.every(async function (word) {
     let stem_word = await stem(word);
     console.log("Input: " + word);
     console.log("Output: " + stem_word);
@@ -94,7 +94,7 @@ function testStopwordRemover() {
   console.log("Output: " + cleanCorpus);
 }
 
-// testStemmer();
+testStemmer();
 // testTransliterator();
 // testLexicalAnalyzer();
 // testStopwordRemover();
@@ -105,5 +105,7 @@ const felig_toolkit = {
   lexAnalyze,
   rmvStopwrd,
 };
+
+// console.log(transliterate.felig_transliterate("ጓ", "en"));
 
 export default felig_toolkit;
