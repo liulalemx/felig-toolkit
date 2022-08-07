@@ -623,7 +623,8 @@ function felig_transliterate(word, lang) {
     tokens.forEach((letter) => {
       if (/[^aeiou][aeiou]/i.test(letter)) {
         let am_letter = Object.keys(felig_transliteration_lookup_table).find(
-          (key) => felig_transliteration_lookup_table[key] === letter
+          (key) =>
+            felig_transliteration_lookup_table[key] === letter.toLowerCase()
         );
 
         if (am_letter !== undefined) {
@@ -634,7 +635,8 @@ function felig_transliterate(word, lang) {
         let am_letter = "";
         ltrs.forEach((ltr) => {
           am_letter += Object.keys(felig_transliteration_lookup_table).find(
-            (key) => felig_transliteration_lookup_table[key] === ltr
+            (key) =>
+              felig_transliteration_lookup_table[key] === ltr.toLowerCase()
           );
         });
 
