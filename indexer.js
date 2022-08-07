@@ -7,13 +7,17 @@ const indexData = {};
 
 function indexTerms(filesArray, outputIndexFilePath) {
   indexData["corpus_size"] = filesArray.length;
+  indexData["corpus_word_count"] = {};
   indexData["words"] = {};
 
   const indexPath = outputIndexFilePath + "/indexFile.json";
+
   filesArray.forEach((filePath) => {
     try {
       // read files
       const fileContents = fs.readFileSync(filePath, "utf8");
+
+      indexData["corpus_word_count"][filePath] = fileContents.length;
 
       // preprocess
       const unStemmedWords = rmvStopwrd(lexAnalyze(fileContents)).split(" ");
