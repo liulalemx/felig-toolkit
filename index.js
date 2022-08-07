@@ -37,6 +37,8 @@ const testWords = [
   "ጠቢብ",
   "ጠባብ",
   "ትምህርት",
+  "በኢትዮጵያ",
+  "የኢትዮጵያ",
 ];
 
 const testWordsForOneStem = [

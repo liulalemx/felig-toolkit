@@ -3,10 +3,13 @@ import stem from "./stemmer.js";
 import lexAnalyze from "./lexical_analyzer.js";
 import rmvStopwrd from "./stopword_remover.js";
 
-const indexPath = "./indexFile.json";
 const indexData = {};
 
-function indexTerms(filesArray) {
+function indexTerms(filesArray, outputIndexFilePath) {
+  indexData["corpus_size"] = filesArray.length;
+  indexData["words"] = {};
+
+  const indexPath = outputIndexFilePath + "/indexFile.json";
   filesArray.forEach((filePath) => {
     try {
       // read files
@@ -22,13 +25,22 @@ function indexTerms(filesArray) {
         });
 
       // index
+      let wordFlag = 0;
       result.forEach((word) => {
-        if (word in indexData) {
-          if (!indexData[word].includes(filePath)) {
-            indexData[word].push(filePath);
+        if (word in indexData["words"]) {
+          indexData.words[word].forEach((pathObj) => {
+            if (filePath in pathObj) {
+              pathObj[filePath]++;
+              wordFlag = 1;
+            }
+          });
+          if (wordFlag === 0) {
+            indexData.words[word].push({ [filePath]: 1 });
+          } else {
+            wordFlag = 0;
           }
         } else {
-          indexData[word] = [filePath];
+          indexData.words[word] = [{ [filePath]: 1 }];
         }
       });
 
@@ -53,4 +65,7 @@ const files = [
   "C:\\Users\\user\\Desktop\\information_retrieval_system\\felig-toolkit\\corpus\\የፕሪሚየር ሊጉ የቀጣይ ዓመት ጨዋታ መርሐ ግብር ይፋ ተደረገ.txt",
 ];
 
-indexTerms(files);
+indexTerms(
+  files,
+  "C:\\Users\\user\\Desktop\\information_retrieval_system\\felig-toolkit"
+);
