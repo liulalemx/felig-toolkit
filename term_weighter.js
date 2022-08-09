@@ -52,3 +52,5 @@ function weigh_terms(indexFilePath, outputWeightedTermsPath) {
 }
 
 weigh_terms("./indexFile.json", "./");
+
+export default weigh_terms;

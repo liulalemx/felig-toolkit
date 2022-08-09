@@ -73,3 +73,5 @@ indexTerms(
   files,
   "C:\\Users\\user\\Desktop\\information_retrieval_system\\felig-toolkit"
 );
+
+export default indexTerms;
