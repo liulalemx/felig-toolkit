@@ -7,7 +7,7 @@
 
 ## What is felig-toolkit?
 
-It is a toolset for Amharic Language pre-processing. It includes an Amharic Stemmer, Amharic Transliterator, Amharic Stopword remover and Amharic Lexical analyzer.
+It is a toolset for Amharic Language pre-processing. It includes an Amharic Stemmer, Amharic Transliterator, Amharic Stopword remover, Amharic Lexical analyzer, Amharic Corpus indexer and Term weighter.
 
 ### Amharic Lexical Analyzer
 
@@ -32,6 +32,14 @@ derivational) variations of Amharic word forms by taking an Amharic word and ret
 
 Exmaple:
 `ልጆች -> ልጅኦች -> ljoc -> lj -> ልጅ`
+
+### Amharic Corpus Indexer
+
+Produces an index file for the stemmed words in a corpus and relates them with the files they are found in. It also stores their frequencies per file.
+
+### Term Weighter
+
+Calculates the weight of words from the index file using product of their length normalized Term frequency and Inverse document frequency (`tf*idf`).
 
 ## Installation
 
@@ -58,11 +66,15 @@ import felig_toolkit from 'felig-toolkit'
 
 - `transliterate.sera_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns SERA-transliterated string
 
-- `removeStopwords(corpus)`: takes an Amharic corpus text (sentence/paragraph/multiple-paragraphs) and removes stop wprds
+- `rmvStopwrd(corpus)`: takes an Amharic corpus text (sentence/paragraph/multiple-paragraphs) and removes stop wprds
 
-- `lexAnalyze()`: takes an Amharic corpus text returns a string of tokens
+- `lexAnalyze(corpus)`: takes an Amharic corpus text returns a string of tokens
 
 - `stem(word)`: takes an Amharic word string and returns the stem as a string (async)
+
+- `indexer(filesArray, outputIndexFilePath)`: takes an array of files and produces an index (`.json`) file.
+
+- `weigh_terms(indexFilePath, outputWeightedTermsPath)`: takes an index file and produces a file (`.json`) with weighted terms.
 
 ## Contributions
 
@@ -75,6 +87,7 @@ felig-toolkit is open to contributions, but it is recommend to create an issue o
 - [nodejs](https://nodejs.org/en/)
 
 1. Clone the repository
+1. Run `npm install`
 1. Run `node index.js` on the root directory
 
 ## Attribution

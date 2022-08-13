@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "jest --coverage"
   },
   "keywords": [
     "Amharic",
@@ -22,5 +23,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/liulalemx/felig-toolkit.git"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.18.6",
+    "jest": "^28.1.3"
   }
 }
