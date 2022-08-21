@@ -58,6 +58,3 @@ function lexAnalyze(corpus) {
 }
 
 export default lexAnalyze;
-
-// console.log(smpl_corpus);
-// console.log(analyze(smpl_corpus));
