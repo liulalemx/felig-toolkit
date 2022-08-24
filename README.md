@@ -28,7 +28,7 @@ Changes Unicode Amharic characters to ASCII. Exmaple: `ልጆች -> ልጅኦች
 
 - Felig - Normalizes the redundant symbols into a common symbol. **RECOMMENDED!**
 
-### Amharic Stemmer
+### Amharic Stemmer [LIVE DEMO](https://liulalemx.github.io/felig-stemmer-demo/)
 
 Reduces the different morphological (e.g. inflectional or
 derivational) variations of Amharic word forms by taking an Amharic word and returning the stem through affix-removal with longest match.
