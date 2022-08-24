@@ -1,3 +1,6 @@
+<p align="center">
+  <img height=170 src="./felig.png" alt="Felig logo" />
+</p>
 <h1 align="center">Felig Toolkit</h1>
 <p align="center">
   <strong>A toolset for Amharic Language pre-processing 🔧</strong>
