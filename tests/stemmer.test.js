@@ -54,6 +54,8 @@ const amh_testWords_input = [
   "ትምህርት",
   "በኢትዮጵያ",
   "የኢትዮጵያ",
+  "ዳቦዎች",
+  "ዳቦ",
 ];
 const amh_testWords_output = [
   "ወንብኧር",
@@ -109,6 +111,8 @@ const amh_testWords_output = [
   "ትምህርት",
   "ኢትዮጵይአ",
   "ኢትዮጵይአ",
+  "ዳቦ",
+  "ዳቦ",
 ];
 
 test("Takes Amharic language words and produces a stem", () => {
