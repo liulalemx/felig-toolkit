@@ -53,7 +53,11 @@ Felig Toolkit is available as a package on NPM for use in a Node application:
 npm install felig-toolkit
 
 ```
+```bash
+# YARN
+yarn add felig-toolkit
 
+```
 ### Example
 
 **note: this package uses es-modules**
