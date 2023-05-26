@@ -290,6 +290,7 @@ const sera_transliteration_lookup_table: any = {
   ፗ: "pWa",
 }
 const felig_transliteration_lookup_table: any = {
+  "": "X",
   ሀ: "he",
   ሁ: "hu",
   ሂ: "hi",

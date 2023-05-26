@@ -63,6 +63,15 @@ function stem(word: string) {
     cv_string = cv_string.replace(/a.+/i, "")
   }
 
+  if (/[bcdfghjklmnpqrstvwxyz]{2}e/i.test(cv_string)) {
+    let ccv = cv_string.match(/[bcdfghjklmnpqrstvwxyz]{2}e/i)!
+
+    cv_string = cv_string.replace(
+      /[bcdfghjklmnpqrstvwxyz]{2}e/i,
+      ccv[0].substring(0, 1) + "X" + ccv[0].substring(1)
+    )
+  }
+
   return transliterate.felig_transliterate(cv_string, "en")
 }
 
