@@ -2,7 +2,8 @@
   "name": "felig-toolkit",
   "version": "1.1.2",
   "description": "Amharic Language Pre-processor toolkit",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
     "start": "node dist/index.js",

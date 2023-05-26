@@ -583,7 +583,7 @@ const felig_transliteration_lookup_table: any = {
 /**
  *@deprecated Use {@link felig_transliterate} function instead.
  */
-function sera_transliterate(word: string, lang: "am" | "en") {
+export function sera_transliterate(word: string, lang: "am" | "en") {
   let trans_word = ""
 
   if (lang === "am") {
@@ -619,7 +619,8 @@ function sera_transliterate(word: string, lang: "am" | "en") {
  * @example{ transliterate Amharic word to English}
  * flig_transliterate("ወንበር","am") // returns "wenber"
  */
-function felig_transliterate(word: string, lang: "am" | "en") {
+
+export function felig_transliterate(word: string, lang: "am" | "en") {
   let trans_word = ""
 
   if (lang === "am") {
