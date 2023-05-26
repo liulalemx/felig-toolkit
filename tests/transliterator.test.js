@@ -1,4 +1,4 @@
-import transliterate from "../transliterator.js";
+import transliterate from "../dist/transliterator.js"
 
 const amh_testWords_input = [
   "ወንበር",
@@ -54,7 +54,7 @@ const amh_testWords_input = [
   "ትምህርት",
   "በኢትዮጵያ",
   "የኢትዮጵያ",
-];
+]
 const en_testWords = [
   "wenber",
   "wenberE",
@@ -109,7 +109,7 @@ const en_testWords = [
   "tmhrt",
   "beityoPya",
   "yeityoPya",
-];
+]
 
 const en_expected_output = [
   "ወንብኧር",
@@ -165,16 +165,16 @@ const en_expected_output = [
   "ትምህርት",
   "በኢትዮጵይአ",
   "የኢትዮጵይአ",
-];
+]
 
 test("Amharic to ASCII transliterator", () => {
   for (let index = 0; index < amh_testWords_input.length; index++) {
-    const amh_input = amh_testWords_input[index];
-    const amh_output = en_expected_output[index];
-    const english = en_testWords[index];
+    const amh_input = amh_testWords_input[index]
+    const amh_output = en_expected_output[index]
+    const english = en_testWords[index]
 
-    expect(transliterate.felig_transliterate(amh_input, "am")).toBe(english);
+    expect(transliterate.felig_transliterate(amh_input, "am")).toBe(english)
 
-    expect(transliterate.felig_transliterate(english, "en")).toBe(amh_output);
+    expect(transliterate.felig_transliterate(english, "en")).toBe(amh_output)
   }
-});
+})

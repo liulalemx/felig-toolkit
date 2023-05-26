@@ -1,4 +1,4 @@
-import stem from "../stemmer.js";
+import stem from "../dist/stemmer.js"
 
 const amh_testWords_input = [
   "ወንበር",
@@ -56,7 +56,7 @@ const amh_testWords_input = [
   "የኢትዮጵያ",
   "ዳቦዎች",
   "ዳቦ",
-];
+]
 const amh_testWords_output = [
   "ወንብኧር",
   "ወንብኧር",
@@ -113,13 +113,13 @@ const amh_testWords_output = [
   "ኢትዮጵይአ",
   "ዳቦ",
   "ዳቦ",
-];
+]
 
 test("Takes Amharic language words and produces a stem", () => {
   for (let index = 0; index < amh_testWords_input.length; index++) {
-    const amh_input = amh_testWords_input[index];
-    const amh_output = amh_testWords_output[index];
+    const amh_input = amh_testWords_input[index]
+    const amh_output = amh_testWords_output[index]
 
-    expect(stem(amh_input)).toBe(amh_output);
+    expect(stem(amh_input)).toBe(amh_output)
   }
-});
+})
