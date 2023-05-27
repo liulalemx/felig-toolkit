@@ -5,9 +5,9 @@
 <p align="center">
   <strong>A toolset for Amharic Language pre-processing 🔧</strong>
 </p>
-<div style="text-align:center">
+<p align="center">
   <a href="https://felig-toolkit-web.vercel.app/">Felig Toolkit Web</a>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
-</div>
+</p>
 <p align="center">Now with <span style="color:DeepSkyBlue;">Typescript</span> support!</p>
 
 ---
@@ -94,6 +94,15 @@ import felig_toolkit from 'felig-toolkit'
 - `indexer(filesArray, outputIndexFilePath, type)`: takes an array of files and produces an index (`.json`) file. `(type= "doc" | "query")`
 
 - `weigh_terms(indexFilePath, outputWeightedTermsPath, typeOfIndex)`: takes an index file and produces a file (`.json`) with weighted terms. `(typeOfIndex= "doc" | "query")`
+
+## How to use in Web apps
+
+> Felig toolkit does not work in the browser (requires node.js enviroment).
+
+> Use felig-toolkit on your server.
+
+Exmaple:
+If you are using Next.js, you can use felig-toolkit in a Next server route handler (`/api/felig/route.ts`) and pass the results.
 
 ## Contributions
 
