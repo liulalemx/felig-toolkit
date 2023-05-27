@@ -5,6 +5,10 @@
 <p align="center">
   <strong>A toolset for Amharic Language pre-processing 🔧</strong>
 </p>
+<div style="text-align:center">
+  <a href="https://felig-toolkit-web.vercel.app/">Felig Toolkit Web</a>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+</div>
+<p align="center">Now with <span style="color:DeepSkyBlue;">Typescript</span> support!</p>
 
 ---
 
@@ -28,7 +32,7 @@ Changes Unicode Amharic characters to ASCII. Exmaple: `ልጆች -> ልጅኦች
 
 - Felig - Normalizes the redundant symbols into a common symbol. **RECOMMENDED!**
 
-### Amharic Stemmer [LIVE DEMO](https://liulalemx.github.io/felig-stemmer-demo/)
+### Amharic Stemmer [LIVE DEMO](https://felig-toolkit-web.vercel.app/#demo)
 
 Reduces the different morphological (e.g. inflectional or
 derivational) variations of Amharic word forms by taking an Amharic word and returning the stem through affix-removal with longest match.
@@ -53,11 +57,19 @@ Felig Toolkit is available as a package on NPM for use in a Node application:
 npm install felig-toolkit
 
 ```
+
 ```bash
 # YARN
 yarn add felig-toolkit
 
 ```
+
+```bash
+# PNPM
+pnpm install felig-toolkit
+
+```
+
 ### Example
 
 **note: this package uses es-modules**
@@ -69,9 +81,9 @@ import felig_toolkit from 'felig-toolkit'
 
 ## What's Included
 
-- `transliterate.felig_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns felig-transliterated string
+- `felig_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns felig-transliterated string
 
-- `transliterate.sera_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns SERA-transliterated string
+- `sera_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns SERA-transliterated string.
 
 - `rmvStopwrd(corpus)`: takes an Amharic corpus text (sentence/paragraph/multiple-paragraphs) and removes stop wprds
 
@@ -79,9 +91,9 @@ import felig_toolkit from 'felig-toolkit'
 
 - `stem(word)`: takes an Amharic word string and returns the stem as a string (async)
 
-- `indexer(filesArray, outputIndexFilePath)`: takes an array of files and produces an index (`.json`) file.
+- `indexer(filesArray, outputIndexFilePath, type)`: takes an array of files and produces an index (`.json`) file. `(type= "doc" | "query")`
 
-- `weigh_terms(indexFilePath, outputWeightedTermsPath)`: takes an index file and produces a file (`.json`) with weighted terms.
+- `weigh_terms(indexFilePath, outputWeightedTermsPath, typeOfIndex)`: takes an index file and produces a file (`.json`) with weighted terms. `(typeOfIndex= "doc" | "query")`
 
 ## Contributions
 
