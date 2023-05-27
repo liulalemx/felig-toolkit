@@ -81,9 +81,9 @@ import felig_toolkit from 'felig-toolkit'
 
 ## What's Included
 
-- `transliterate.felig_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns felig-transliterated string
+- `felig_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns felig-transliterated string
 
-- `transliterate.sera_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns SERA-transliterated string.
+- `sera_transliterate(word,lang)`: takes a single word and its' language (am/en) and returns SERA-transliterated string.
 
 - `rmvStopwrd(corpus)`: takes an Amharic corpus text (sentence/paragraph/multiple-paragraphs) and removes stop wprds
 
